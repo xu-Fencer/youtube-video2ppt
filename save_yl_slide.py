@@ -1,4 +1,3 @@
-import pytube
 from pathlib import Path
 import argparse
 import cv2
@@ -10,7 +9,7 @@ import os
 ap = argparse.ArgumentParser()
 ap.add_argument("-s", "--start", required=False, type=int, default=0,	help="Start of the video")
 ap.add_argument("-p", "--path", required=False, default='', help="Path to save slides")
-ap.add_argument("-f", "--flag", required=False, default='', help="Mask the area(to ignore) using selection tool for checking the difference")
+ap.add_argument("-f", "--flag", required=False, default='n', help="Mask the area(to ignore) using selection tool for checking the difference")
 args = vars(ap.parse_args())
 
 #print(Path(args['path']).glob('*.mp4'))
