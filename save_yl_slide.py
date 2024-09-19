@@ -13,7 +13,16 @@ ap.add_argument("-f", "--flag", required=False, default='n', help="Mask the area
 args = vars(ap.parse_args())
 
 #print(Path(args['path']).glob('*.mp4'))
-vid_path = next(Path(args['path']).glob('*.mp4'))
+if not args['path']:
+    print("The path argument is empty. Please provide a valid path.")
+    sys.exit(1)
+
+mp4_files = list(Path(args['path']).glob('*.mp4'))
+if not mp4_files:
+    print("No .mp4 files found in the provided path.")
+else:
+    vid_path = mp4_files[0]
+    
 vidcap = cv2.VideoCapture(f"{vid_path}")
 success,image = vidcap.read()
 dir_path = args['path']
