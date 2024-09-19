@@ -99,6 +99,14 @@ while success:
             continue
 
 vidcap.release()
+print("manually check imgs,then input ok")
+response = input("input 'ok' to continue: ")
+
+while response != "ok":
+    response = input("input 'ok' to continue: ")
+
+print("running...")
+# 在这里写入你的后续代码
 create_ppt(dir_path)
 print("Complete")
 
